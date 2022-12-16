@@ -4,6 +4,14 @@ metadata:
   name: hanu
 spec:
   entrypoint: main
+  volumeClaimTemplates:
+    - metadata:
+        name: work
+      spec:
+        accessModes: [ ReadWriteOnce ]
+        resources:
+          requests:
+            storage: 64Mi  
   serviceAccountName: argo
   arguments:
     parameters:
@@ -11,24 +19,33 @@ spec:
         value: main
       - name: dockerRepo
         value: hanub.jfrog.io/default-docker/go-api:2.0
+
   templates:
-  - name: clone
+  - name: main
     steps:
     - - name: clone
         templateRef:
           name: clone
           template: clone
+          clusterScope: true
         
     - - name: deps
         templateRef:
           name: deps
           template: deps
+          clusterScope: true
     - - name: build
         templateRef:
           name: build
           template: build
+          clusterScope: true
     - - name: docker-build
         templateRef:
           name: docker-build
           template: docker-build
+          clusterScope: true
+        arguments:
+          parameters:
+            - name: dockerRepo
+              value: hanub.jfrog.io/default-docker/go-api:2.0
         
