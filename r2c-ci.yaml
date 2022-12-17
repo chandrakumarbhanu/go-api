@@ -12,7 +12,7 @@ spec:
         resources:
           requests:
             storage: 64Mi  
-  serviceAccountName: argo
+  serviceAccountName: argo-events-core
   arguments:
     parameters:
       - name: branch
