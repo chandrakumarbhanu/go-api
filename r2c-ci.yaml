@@ -1,7 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  name: hanu
+  generateName: hanu-
+#  name: hanu
 spec:
   entrypoint: main
   volumeClaimTemplates:
