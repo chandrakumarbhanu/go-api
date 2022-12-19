@@ -18,7 +18,7 @@ spec:
       - name: branch
         value: main
       - name: dockerRepo
-        value: hanub.jfrog.io/default-docker/go-api:2.0
+        value: hanub.jfrog.io/default-docker/go-api:3.0
 
   templates:
   - name: main
@@ -47,5 +47,5 @@ spec:
         arguments:
           parameters:
             - name: dockerRepo
-              value: hanub.jfrog.io/default-docker/go-api:2.0
+              value: hanub.jfrog.io/default-docker/go-api:3.0
         
