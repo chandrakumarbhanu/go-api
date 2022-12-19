@@ -48,4 +48,3 @@ spec:
           parameters:
             - name: dockerRepo
               value: hanub.jfrog.io/default-docker/go-api:3.0
-        
